@@ -2,8 +2,18 @@
 
 import { program } from 'commander';
 
-program
+  program
+  .version('1.0.0')
   .description('Compares two configuration files and shows a difference.')
-  .version('1.0.0');
-  
-  program.parse();
+  .arguments('<filepath1> <filepath2>')
+  .option('-f, --format <type>', 'output format')
+  .action(() => {
+    console.log('');
+    console.log('Examples:');
+    console.log('  $ genDiff file1.json file2.json');
+    console.log('  $ genDiff -f plain file1.yml file2.yml');
+  });
+
+program.parse();
+
+
